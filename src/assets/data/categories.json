@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "HTML",
+    "description": "Structure and markup concepts for modern web pages.",
+    "icon": "html",
+    "termCount": 0
+  },
+  {
+    "id": 2,
+    "name": "CSS",
+    "description": "Styling, layouts, animations, and responsive design concepts.",
+    "icon": "css",
+    "termCount": 0
+  },
+  {
+    "id": 3,
+    "name": "JavaScript",
+    "description": "Core JavaScript programming and web development concepts.",
+    "icon": "javascript",
+    "termCount": 0
+  },
+  {
+    "id": 4,
+    "name": "React",
+    "description": "Modern React concepts for building user interfaces.",
+    "icon": "react",
+    "termCount": 0
+  },
+  {
+    "id": 5,
+    "name": "TypeScript",
+    "description": "Typed JavaScript concepts for scalable applications.",
+    "icon": "typescript",
+    "termCount": 0
+  }
+]
