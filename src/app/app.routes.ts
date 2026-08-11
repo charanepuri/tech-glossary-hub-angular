@@ -9,43 +9,43 @@ export const routes: Routes = [
   {
     path: 'home',
     loadComponent: () =>
-      import('./pages/home/home.component').then(
-        m => m.HomeComponent
+      import('./pages/home/home').then(
+        m => m.Home
       )
   },
   {
     path: 'categories',
     loadComponent: () =>
-      import('./pages/categories/categories.component').then(
-        m => m.CategoriesComponent
+      import('./pages/categories/categories').then(
+        m => m.Categories
       )
   },
   {
     path: 'glossary',
     loadComponent: () =>
-      import('./pages/glossary/glossary.component').then(
-        m => m.GlossaryComponent
+      import('./pages/glossary/glossary').then(
+        m => m.Glossary
       )
   },
   {
     path: 'about',
     loadComponent: () =>
-      import('./pages/about/about.component').then(
-        m => m.AboutComponent
+      import('./pages/about/about').then(
+        m => m.About
       )
   },
   {
     path: 'contact',
     loadComponent: () =>
-      import('./pages/contact/contact.component').then(
-        m => m.ContactComponent
+      import('./pages/contact/contact').then(
+        m => m.Contact
       )
   },
   {
     path: '**',
     loadComponent: () =>
-      import('./pages/not-found/not-found.component').then(
-        m => m.NotFoundComponent
+      import('./pages/not-found/not-found').then(
+        m => m.NotFound
       )
   }
 ];
