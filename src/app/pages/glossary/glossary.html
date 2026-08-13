@@ -1,1 +1,179 @@
-<p>glossary works!</p>
+<section class="glossary-page">
+
+  <!-- Header -->
+
+  <div class="page-header">
+
+    <span class="page-label">
+      Knowledge Base
+    </span>
+
+    <h1>
+      Technology Glossary
+    </h1>
+
+    <p>
+      Explore essential programming and web development
+      concepts with clear definitions and practical examples.
+    </p>
+
+  </div>
+
+
+  <!-- Search Preview -->
+
+  <div class="search-container">
+
+    <span class="search-icon">
+      ⌕
+    </span>
+
+    <input
+      type="text"
+      placeholder="Search glossary terms..."
+      aria-label="Search glossary terms"
+    />
+
+  </div>
+
+
+  <!-- Toolbar -->
+
+  <div class="toolbar">
+
+    <div class="results-count">
+
+      <strong>
+        {{ terms.length }}
+      </strong>
+
+      <span>
+        Terms Available
+      </span>
+
+    </div>
+
+    <div class="toolbar-actions">
+
+      <button type="button">
+        All Categories
+      </button>
+
+      <button type="button">
+        All Levels
+      </button>
+
+      <button type="button">
+        Sort
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- Terms -->
+
+  @if (terms.length > 0) {
+
+    <div class="terms-grid">
+
+      @for (
+        item of terms;
+        track item.id
+      ) {
+
+        <article class="term-card">
+
+          <div class="term-header">
+
+            <span class="category-badge">
+              {{ item.category }}
+            </span>
+
+            <span
+              class="difficulty-badge"
+              [class.intermediate]="item.difficulty === 'Intermediate'"
+              [class.advanced]="item.difficulty === 'Advanced'"
+            >
+              {{ item.difficulty }}
+            </span>
+
+          </div>
+
+
+          <h2>
+            {{ item.term }}
+          </h2>
+
+
+          <p class="definition">
+            {{ item.definition }}
+          </p>
+
+
+          <p class="description">
+            {{ item.description }}
+          </p>
+
+
+          @if (item.syntax) {
+
+            <div class="syntax">
+
+              <span>
+                Syntax
+              </span>
+
+              <code>
+                {{ item.syntax }}
+              </code>
+
+            </div>
+
+          }
+
+
+          <div class="card-footer">
+
+            @if (item.featured) {
+
+              <span class="featured">
+                Featured
+              </span>
+
+            }
+
+            <a routerLink="/glossary">
+              View Details →
+            </a>
+
+          </div>
+
+        </article>
+
+      }
+
+    </div>
+
+  } @else {
+
+    <div class="empty-state">
+
+      <div class="empty-icon">
+        ?
+      </div>
+
+      <h2>
+        No Terms Available
+      </h2>
+
+      <p>
+        There are currently no glossary terms to display.
+      </p>
+
+    </div>
+
+  }
+
+</section>
