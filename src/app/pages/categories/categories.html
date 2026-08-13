@@ -1,1 +1,139 @@
-<p>categories works!</p>
+<section class="categories-page">
+
+  <!-- Page Header -->
+  <div class="page-header">
+
+    <span class="page-label">
+      Explore
+    </span>
+
+    <h1>
+      Technology Categories
+    </h1>
+
+    <p>
+      Browse technical concepts by technology and discover
+      the knowledge you need to build better applications.
+    </p>
+
+  </div>
+
+
+  <!-- Category Summary -->
+  <div class="summary-card">
+
+    <div class="summary-item">
+
+      <strong>
+        {{ categories.length }}
+      </strong>
+
+      <span>
+        Categories
+      </span>
+
+    </div>
+
+    <div class="summary-divider"></div>
+
+    <div class="summary-item">
+
+      <strong>
+        {{ totalTerms() }}+
+      </strong>
+
+      <span>
+        Technical Terms
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- Categories -->
+  <div class="category-grid">
+
+    @for (
+      category of categories;
+      track category.id
+    ) {
+
+      <article class="category-card">
+
+        <div class="card-header">
+
+          <div class="category-icon">
+            {{ category.icon }}
+          </div>
+
+          <span class="term-count">
+            {{ category.termCount }} Terms
+          </span>
+
+        </div>
+
+
+        <div class="card-content">
+
+          <h2>
+            {{ category.name }}
+          </h2>
+
+          <p>
+            {{ category.description }}
+          </p>
+
+        </div>
+
+
+        <div class="card-footer">
+
+          <a
+            routerLink="/glossary"
+            class="browse-link"
+          >
+            Browse Terms
+            <span>→</span>
+          </a>
+
+        </div>
+
+      </article>
+
+    }
+
+  </div>
+
+
+  <!-- Bottom CTA -->
+  <section class="categories-cta">
+
+    <div>
+
+      <span class="page-label">
+        Keep Learning
+      </span>
+
+      <h2>
+        Can't find what you're looking for?
+      </h2>
+
+      <p>
+        Explore the complete glossary to discover more
+        programming and web development concepts.
+      </p>
+
+    </div>
+
+    <a
+      routerLink="/glossary"
+      class="cta-button"
+    >
+      Explore Glossary
+      <span>→</span>
+    </a>
+
+  </section>
+
+</section>
