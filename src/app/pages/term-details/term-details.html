@@ -1,0 +1,221 @@
+@if (term) {
+
+  <section class="details-page">
+
+    <!-- Breadcrumb -->
+
+    <nav class="breadcrumb">
+
+      <a routerLink="/glossary">
+        Glossary
+      </a>
+
+      <span>/</span>
+
+      <span>
+        {{ term.term }}
+      </span>
+
+    </nav>
+
+
+    <!-- Main Term -->
+
+    <article class="term-details-card">
+
+      <div class="term-header">
+
+        <div class="term-heading">
+
+          <span class="category-badge">
+            {{ term.category }}
+          </span>
+
+          <h1>
+            {{ term.term }}
+          </h1>
+
+        </div>
+
+        <span
+          class="difficulty-badge"
+          [class.intermediate]="
+            term.difficulty === 'Intermediate'
+          "
+          [class.advanced]="
+            term.difficulty === 'Advanced'
+          "
+        >
+          {{ term.difficulty }}
+        </span>
+
+      </div>
+
+
+      <!-- Definition -->
+
+      <section class="detail-section">
+
+        <span class="section-label">
+          Definition
+        </span>
+
+        <p class="definition">
+          {{ term.definition }}
+        </p>
+
+      </section>
+
+
+      <!-- Description -->
+
+      <section class="detail-section">
+
+        <span class="section-label">
+          Overview
+        </span>
+
+        <p>
+          {{ term.description }}
+        </p>
+
+      </section>
+
+
+      <!-- Syntax -->
+
+      @if (term.syntax) {
+
+        <section class="detail-section">
+
+          <span class="section-label">
+            Syntax
+          </span>
+
+          <div class="code-block">
+
+            <code>
+              {{ term.syntax }}
+            </code>
+
+          </div>
+
+        </section>
+
+      }
+
+
+      <!-- Example -->
+
+      @if (term.example) {
+
+        <section class="detail-section">
+
+          <span class="section-label">
+            Example
+          </span>
+
+          <div class="code-block">
+
+            <code>
+              {{ term.example }}
+            </code>
+
+          </div>
+
+        </section>
+
+      }
+
+
+      <!-- Related Terms -->
+
+      @if (relatedTerms.length > 0) {
+
+        <section class="detail-section">
+
+          <span class="section-label">
+            Related Terms
+          </span>
+
+          <div class="related-grid">
+
+            @for (
+              related of relatedTerms;
+              track related.id
+            ) {
+
+              <a
+                [routerLink]="[
+                  '/glossary',
+                  related.id
+                ]"
+                class="related-card"
+              >
+
+                <span class="related-category">
+                  {{ related.category }}
+                </span>
+
+                <strong>
+                  {{ related.term }}
+                </strong>
+
+                <span>
+                  Learn more →
+                </span>
+
+              </a>
+
+            }
+
+          </div>
+
+        </section>
+
+      }
+
+
+      <!-- Footer -->
+
+      <div class="details-footer">
+
+        <a
+          routerLink="/glossary"
+          class="back-button"
+        >
+          ← Back to Glossary
+        </a>
+
+      </div>
+
+    </article>
+
+  </section>
+
+} @else {
+
+  <section class="term-not-found">
+
+    <div class="not-found-icon">
+      ?
+    </div>
+
+    <h1>
+      Term Not Found
+    </h1>
+
+    <p>
+      The glossary term you're looking for doesn't exist.
+    </p>
+
+    <a
+      routerLink="/glossary"
+      class="back-button"
+    >
+      ← Back to Glossary
+    </a>
+
+  </section>
+
+}

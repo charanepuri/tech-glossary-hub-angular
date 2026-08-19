@@ -19,6 +19,7 @@ export class GlossaryService {
         'The standard markup language used to create and structure web pages.',
       difficulty: 'Beginner',
       example: '<h1>Hello World</h1>',
+      relatedTerms: ['Semantic HTML', 'Attribute','DOCTYPE'],
       featured: true
     },
 
@@ -32,6 +33,7 @@ export class GlossaryService {
         'Semantic elements improve document structure, accessibility, and readability.',
       difficulty: 'Beginner',
       example: '<header>Website Header</header>',
+      relatedTerms: ['Semantic HTML', 'Attribute','DOCTYPE'],
       featured: true
     },
 
@@ -45,7 +47,8 @@ export class GlossaryService {
         'Forms provide controls that allow users to enter and submit information.',
       difficulty: 'Beginner',
       syntax: '<form>...</form>',
-      example: '<form><input type="text"></form>'
+      example: '<form><input type="text"></form>',
+      relatedTerms: ['Semantic HTML', 'Attribute','DOCTYPE'],
     },
 
     {
@@ -57,7 +60,8 @@ export class GlossaryService {
       description:
         'Attributes modify the behavior or provide additional information about an HTML element.',
       difficulty: 'Beginner',
-      example: '<img src="image.jpg" alt="Example">'
+      example: '<img src="image.jpg" alt="Example">',
+      relatedTerms: ['Semantic HTML', 'Attribute','DOCTYPE'],
     },
 
     {
@@ -69,7 +73,8 @@ export class GlossaryService {
       description:
         'The DOCTYPE declaration helps browsers render the document using standards mode.',
       difficulty: 'Beginner',
-      syntax: '<!DOCTYPE html>'
+      syntax: '<!DOCTYPE html>',
+      relatedTerms: ['Semantic HTML', 'Attribute','DOCTYPE'],
     },
 
     // CSS
@@ -98,6 +103,7 @@ export class GlossaryService {
       difficulty: 'Beginner',
       syntax: 'display: flex;',
       example: '.container { display: flex; }',
+      relatedTerms: ['CSS Grid', 'Media Query'],
       featured: true
     },
 
@@ -188,6 +194,7 @@ export class GlossaryService {
         'Promises are commonly used to handle asynchronous operations in JavaScript.',
       difficulty: 'Intermediate',
       example: 'fetch("/api/data").then(response => response.json())',
+      relatedTerms: ['Async/Await', 'Function'],
       featured: true
     },
 
@@ -215,7 +222,8 @@ export class GlossaryService {
         'React components encapsulate UI structure and behavior.',
       difficulty: 'Beginner',
       example: 'function Welcome() { return <h1>Hello</h1>; }',
-      featured: true
+      featured: true,
+      relatedTerms: ['Props', 'State','useEffect']
     },
 
     {
@@ -279,6 +287,7 @@ export class GlossaryService {
         'Interfaces provide contracts that describe the properties and types an object should contain.',
       difficulty: 'Intermediate',
       syntax: 'interface User { name: string; }',
+      relatedTerms: ['Type Alias', 'Generic'],
       featured: true
     },
 

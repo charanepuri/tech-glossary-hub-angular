@@ -6,6 +6,7 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+
   {
     path: 'home',
     loadComponent: () =>
@@ -13,6 +14,7 @@ export const routes: Routes = [
         m => m.Home
       )
   },
+
   {
     path: 'categories',
     loadComponent: () =>
@@ -20,6 +22,7 @@ export const routes: Routes = [
         m => m.Categories
       )
   },
+
   {
     path: 'glossary',
     loadComponent: () =>
@@ -27,6 +30,15 @@ export const routes: Routes = [
         m => m.Glossary
       )
   },
+
+  {
+    path: 'glossary/:id',
+    loadComponent: () =>
+      import('./pages/term-details/term-details').then(
+        m => m.TermDetails
+      )
+  },
+
   {
     path: 'about',
     loadComponent: () =>
@@ -34,6 +46,7 @@ export const routes: Routes = [
         m => m.About
       )
   },
+
   {
     path: 'contact',
     loadComponent: () =>
@@ -41,6 +54,7 @@ export const routes: Routes = [
         m => m.Contact
       )
   },
+
   {
     path: '**',
     loadComponent: () =>
