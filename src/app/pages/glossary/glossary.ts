@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import {
+  ActivatedRoute,
+  RouterLink
+} from '@angular/router';
 
 import { GlossaryService } from '../../services/glossary';
 import { GlossaryTerm } from '../../models/glossary-term.model';
@@ -26,21 +29,35 @@ export class Glossary implements OnInit {
 
   categories: string[] = [];
 
-  ngOnInit(): void {
-    this.terms = this.glossaryService.getTerms();
+ngOnInit(): void {
 
-    this.categories = [
-      ...new Set(
-        this.terms.map(term => term.category)
-      )
-    ];
+  this.terms = this.glossaryService.getTerms();
+
+  this.categories = [
+    ...new Set(
+      this.terms.map(term => term.category)
+    )
+  ];
+
+  this.route.queryParamMap.subscribe(params => {
+
+    const category =
+      params.get('category');
+
+    this.selectedCategory =
+      category && this.categories.includes(category)
+        ? category
+        : 'All';
 
     this.applyFilters();
-  }
 
-  constructor(
-    private glossaryService: GlossaryService
-  ) {}
+  });
+}
+
+constructor(
+  private glossaryService: GlossaryService,
+  private route: ActivatedRoute
+) {}
 
   applyFilters(): void {
 

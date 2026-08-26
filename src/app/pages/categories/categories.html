@@ -20,90 +20,92 @@
 
 
   <!-- Category Summary -->
-  <div class="summary-card">
+<div class="summary-card">
 
-    <div class="summary-item">
+  <div class="summary-item">
 
-      <strong>
-        {{ categories.length }}
-      </strong>
+    <strong>
+      {{ categories.length }}
+    </strong>
 
-      <span>
-        Categories
-      </span>
-
-    </div>
-
-    <div class="summary-divider"></div>
-
-    <div class="summary-item">
-
-      <strong>
-        {{ totalTerms() }}+
-      </strong>
-
-      <span>
-        Technical Terms
-      </span>
-
-    </div>
+    <span>
+      Categories
+    </span>
 
   </div>
+
+  <div class="summary-divider"></div>
+
+  <div class="summary-item">
+
+    <strong>
+      {{ totalTerms() }}
+    </strong>
+
+    <span>
+      Angular Terms
+    </span>
+
+  </div>
+
+</div>
 
 
   <!-- Categories -->
-  <div class="category-grid">
+<div class="category-grid">
 
-    @for (
-      category of categories;
-      track category.id
-    ) {
+  @for (
+    category of categories;
+    track category.id
+  ) {
 
-      <article class="category-card">
+    <article class="category-card">
 
-        <div class="card-header">
+      <div class="card-header">
 
-          <div class="category-icon">
-            {{ category.icon }}
-          </div>
-
-          <span class="term-count">
-            {{ category.termCount }} Terms
-          </span>
-
+        <div class="category-icon">
+          {{ category.icon }}
         </div>
 
+        <span class="term-count">
+          {{ getTermCount(category.name) }}
+          {{ getTermCount(category.name) === 1 ? 'Term' : 'Terms' }}
+        </span>
 
-        <div class="card-content">
-
-          <h2>
-            {{ category.name }}
-          </h2>
-
-          <p>
-            {{ category.description }}
-          </p>
-
-        </div>
+      </div>
 
 
-        <div class="card-footer">
+      <div class="card-content">
 
-          <a
-            routerLink="/glossary"
-            class="browse-link"
-          >
-            Browse Terms
-            <span>→</span>
-          </a>
+        <h2>
+          {{ category.name }}
+        </h2>
 
-        </div>
+        <p>
+          {{ category.description }}
+        </p>
 
-      </article>
+      </div>
 
-    }
 
-  </div>
+      <div class="card-footer">
+
+        <a
+          [routerLink]="['/glossary']"
+          [queryParams]="{ category: category.name }"
+          class="browse-link"
+        >
+          Browse Terms
+          <span>→</span>
+        </a>
+
+      </div>
+
+    </article>
+
+  }
+
+</div>
 
 
   <!-- Bottom CTA -->

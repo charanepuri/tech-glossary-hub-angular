@@ -8,323 +8,544 @@ export class GlossaryService {
 
   private readonly terms: GlossaryTerm[] = [
 
-    // HTML
+    // ========================================
+    // ANGULAR FUNDAMENTALS
+    // ========================================
 
     {
       id: 1,
-      term: 'HTML',
-      category: 'HTML',
-      definition: 'HyperText Markup Language used to structure content on the web.',
+      term: 'Angular',
+      category: 'Angular Fundamentals',
+      definition:
+        'A TypeScript-based framework for building scalable web applications.',
       description:
-        'The standard markup language used to create and structure web pages.',
+        'Angular provides a complete application development platform with components, routing, dependency injection, forms, HTTP tools, and more.',
       difficulty: 'Beginner',
-      example: '<h1>Hello World</h1>',
-      relatedTerms: ['Semantic HTML', 'Attribute','DOCTYPE'],
+      example: 'ng new my-angular-app',
+      relatedTerms: [
+        'Angular CLI',
+        'Standalone Components'
+      ],
       featured: true
     },
 
     {
       id: 2,
-      term: 'Semantic HTML',
-      category: 'HTML',
+      term: 'Angular CLI',
+      category: 'Angular Fundamentals',
       definition:
-        'HTML elements that clearly describe their meaning and purpose.',
+        'A command-line interface used to create, develop, test, and build Angular applications.',
       description:
-        'Semantic elements improve document structure, accessibility, and readability.',
+        'Angular CLI provides commands for generating project files, running development servers, building applications, and performing other development tasks.',
       difficulty: 'Beginner',
-      example: '<header>Website Header</header>',
-      relatedTerms: ['Semantic HTML', 'Attribute','DOCTYPE'],
-      featured: true
+      example: 'ng serve'
     },
 
     {
       id: 3,
-      term: 'Form',
-      category: 'HTML',
+      term: 'Standalone Components',
+      category: 'Angular Fundamentals',
       definition:
-        'An HTML element used to collect and submit user input.',
+        'Angular components that can be used without being declared inside an NgModule.',
       description:
-        'Forms provide controls that allow users to enter and submit information.',
+        'Standalone components simplify Angular application architecture and support modern Angular development.',
       difficulty: 'Beginner',
-      syntax: '<form>...</form>',
-      example: '<form><input type="text"></form>',
-      relatedTerms: ['Semantic HTML', 'Attribute','DOCTYPE'],
+      example: 'imports: [RouterLink]'
     },
+
+
+    // ========================================
+    // COMPONENTS & TEMPLATES
+    // ========================================
 
     {
       id: 4,
-      term: 'Attribute',
-      category: 'HTML',
+      term: 'Component',
+      category: 'Components & Templates',
       definition:
-        'Additional information provided inside an HTML opening tag.',
+        'A building block that controls a portion of an Angular application interface.',
       description:
-        'Attributes modify the behavior or provide additional information about an HTML element.',
+        'Angular components combine a TypeScript class, template, and styles to create reusable user interface sections.',
       difficulty: 'Beginner',
-      example: '<img src="image.jpg" alt="Example">',
-      relatedTerms: ['Semantic HTML', 'Attribute','DOCTYPE'],
+      example: '@Component({ selector: "app-home" })',
+      relatedTerms: [
+        'Template',
+        'Data Binding'
+      ],
+      featured: true
     },
 
     {
       id: 5,
-      term: 'DOCTYPE',
-      category: 'HTML',
+      term: 'Template',
+      category: 'Components & Templates',
       definition:
-        'A declaration that tells the browser which HTML standard the document uses.',
+        'HTML markup associated with an Angular component.',
       description:
-        'The DOCTYPE declaration helps browsers render the document using standards mode.',
+        'Angular templates can display component data and respond to user interactions using Angular template syntax.',
       difficulty: 'Beginner',
-      syntax: '<!DOCTYPE html>',
-      relatedTerms: ['Semantic HTML', 'Attribute','DOCTYPE'],
+      example: '<h1>{{ title }}</h1>'
     },
-
-    // CSS
 
     {
       id: 6,
-      term: 'CSS',
-      category: 'CSS',
+      term: 'Data Binding',
+      category: 'Components & Templates',
       definition:
-        'Cascading Style Sheets used to style and layout web pages.',
+        'A mechanism for connecting component data with the application template.',
       description:
-        'CSS controls the visual presentation of HTML elements including colors, spacing, and layouts.',
+        'Angular supports interpolation, property binding, event binding, and two-way binding.',
       difficulty: 'Beginner',
-      example: 'body { margin: 0; }',
-      featured: true
+      relatedTerms: [
+        'Interpolation',
+        'Event Binding'
+      ]
     },
 
     {
       id: 7,
-      term: 'Flexbox',
-      category: 'CSS',
+      term: 'Control Flow',
+      category: 'Components & Templates',
       definition:
-        'A CSS layout system designed for arranging elements in one dimension.',
+        'Angular template syntax used to conditionally render and repeat content.',
       description:
-        'Flexbox makes it easier to align and distribute elements within a container.',
-      difficulty: 'Beginner',
-      syntax: 'display: flex;',
-      example: '.container { display: flex; }',
-      relatedTerms: ['CSS Grid', 'Media Query'],
+        'Modern Angular provides built-in control-flow blocks such as @if, @for, and @switch.',
+      difficulty: 'Intermediate',
+      example: '@if (isLoggedIn) { <p>Welcome</p> }',
+      featured: true
+    },
+
+
+    // ========================================
+    // SIGNALS & REACTIVITY
+    // ========================================
+
+    {
+      id: 8,
+      term: 'Signal',
+      category: 'Signals & Reactivity',
+      definition:
+        'A reactive value that allows Angular to track changes and update dependent parts of an application.',
+      description:
+        'Signals provide a reactive state model that makes dependencies between values explicit.',
+      difficulty: 'Intermediate',
+      example: 'count = signal(0);',
       featured: true
     },
 
     {
-      id: 8,
-      term: 'CSS Grid',
-      category: 'CSS',
-      definition:
-        'A two-dimensional CSS layout system for creating rows and columns.',
-      description:
-        'CSS Grid provides powerful tools for building structured two-dimensional layouts.',
-      difficulty: 'Intermediate',
-      syntax: 'display: grid;',
-      example: '.container { display: grid; }'
-    },
-
-    {
       id: 9,
-      term: 'Media Query',
-      category: 'CSS',
+      term: 'Computed',
+      category: 'Signals & Reactivity',
       definition:
-        'A CSS feature used to apply styles based on device or viewport conditions.',
+        'A read-only reactive value derived from other signals.',
       description:
-        'Media queries are commonly used to create responsive layouts.',
+        'Computed signals automatically recalculate when the signals they depend on change.',
       difficulty: 'Intermediate',
-      syntax: '@media (max-width: 768px) { ... }'
+      example: 'total = computed(() => price() * quantity());'
     },
 
     {
       id: 10,
-      term: 'Pseudo-class',
-      category: 'CSS',
+      term: 'Effect',
+      category: 'Signals & Reactivity',
       definition:
-        'A keyword used to define a special state of an HTML element.',
+        'A reactive operation that runs when the signals it reads change.',
       description:
-        'Pseudo-classes allow styles to be applied when elements are in specific states.',
+        'Effects are useful for reacting to signal changes and performing side effects.',
       difficulty: 'Intermediate',
-      example: 'button:hover { ... }'
+      example: 'effect(() => console.log(count()));'
     },
 
-    // JavaScript
+
+    // ========================================
+    // ROUTING & NAVIGATION
+    // ========================================
 
     {
       id: 11,
-      term: 'JavaScript',
-      category: 'JavaScript',
+      term: 'Angular Router',
+      category: 'Routing & Navigation',
       definition:
-        'A programming language widely used to create interactive web applications.',
+        'The Angular service responsible for navigation between application views.',
       description:
-        'JavaScript enables dynamic behavior and application logic in web browsers.',
+        'Angular Router maps URL paths to components and supports navigation, route parameters, guards, and lazy loading.',
       difficulty: 'Beginner',
-      example: 'console.log("Hello World");',
       featured: true
     },
 
     {
       id: 12,
-      term: 'Variable',
-      category: 'JavaScript',
+      term: 'RouterLink',
+      category: 'Routing & Navigation',
       definition:
-        'A named container used to store a value in a program.',
+        'A directive used to create navigation links within an Angular application.',
       description:
-        'JavaScript provides let, const, and var for declaring variables.',
+        'RouterLink allows users to navigate between routes without performing a full browser page reload.',
       difficulty: 'Beginner',
-      syntax: 'const name = "John";'
+      example: '<a [routerLink]="[\'/glossary\', id]">View</a>'
     },
 
     {
       id: 13,
-      term: 'Function',
-      category: 'JavaScript',
+      term: 'Route Parameter',
+      category: 'Routing & Navigation',
       definition:
-        'A reusable block of code designed to perform a specific task.',
+        'A dynamic value included in a route URL.',
       description:
-        'Functions allow developers to organize logic into reusable units.',
-      difficulty: 'Beginner',
-      syntax: 'function greet() { ... }',
-      example: 'function greet() { return "Hello"; }'
+        'Route parameters allow an application to load different data based on values contained in the URL.',
+      difficulty: 'Intermediate',
+      example: 'path: "glossary/:id"'
     },
 
     {
       id: 14,
-      term: 'Promise',
-      category: 'JavaScript',
+      term: 'Lazy Loading',
+      category: 'Routing & Navigation',
       definition:
-        'An object representing the eventual completion or failure of an asynchronous operation.',
+        'A technique that loads application code only when it is needed.',
       description:
-        'Promises are commonly used to handle asynchronous operations in JavaScript.',
+        'Lazy loading can reduce the initial JavaScript bundle and improve application startup performance.',
       difficulty: 'Intermediate',
-      example: 'fetch("/api/data").then(response => response.json())',
-      relatedTerms: ['Async/Await', 'Function'],
+      example: 'loadComponent: () => import("./pages/home/home")'
+    },
+
+
+    // ========================================
+    // SERVICES & DEPENDENCY INJECTION
+    // ========================================
+
+    {
+      id: 15,
+      term: 'Service',
+      category: 'Services & Dependency Injection',
+      definition:
+        'A reusable class that contains application logic or shared functionality.',
+      description:
+        'Angular services are commonly used for data access, business logic, shared state, and reusable functionality.',
+      difficulty: 'Beginner',
       featured: true
     },
 
     {
-      id: 15,
-      term: 'Async/Await',
-      category: 'JavaScript',
-      definition:
-        'Syntax used to work with promises using a more readable asynchronous style.',
-      description:
-        'Async and await make asynchronous JavaScript code easier to read and maintain.',
-      difficulty: 'Intermediate',
-      syntax: 'async function example() { await promise; }'
-    },
-
-    // React
-
-    {
       id: 16,
-      term: 'Component',
-      category: 'React',
+      term: 'Dependency Injection',
+      category: 'Services & Dependency Injection',
       definition:
-        'A reusable building block used to construct React user interfaces.',
+        'A design pattern in which required dependencies are provided to a class rather than created by the class itself.',
       description:
-        'React components encapsulate UI structure and behavior.',
-      difficulty: 'Beginner',
-      example: 'function Welcome() { return <h1>Hello</h1>; }',
-      featured: true,
-      relatedTerms: ['Props', 'State','useEffect']
+        'Angular provides a dependency injection system that manages services and other injectable dependencies.',
+      difficulty: 'Intermediate',
+      relatedTerms: [
+        'Service',
+        'Injectable'
+      ]
     },
 
     {
       id: 17,
-      term: 'Props',
-      category: 'React',
+      term: 'Injectable',
+      category: 'Services & Dependency Injection',
       definition:
-        'Inputs passed from a parent component to a child component.',
+        'A decorator used to configure a class for Angular dependency injection.',
       description:
-        'Props allow components to receive data and configuration from their parent.',
-      difficulty: 'Beginner',
-      example: '<User name="Charan" />'
+        'The @Injectable decorator allows Angular to understand how a class can participate in dependency injection.',
+      difficulty: 'Intermediate',
+      example: '@Injectable({ providedIn: "root" })'
     },
+
+
+    // ========================================
+    // FORMS & USER INPUT
+    // ========================================
 
     {
       id: 18,
-      term: 'State',
-      category: 'React',
+      term: 'Angular Forms',
+      category: 'Forms & User Input',
       definition:
-        'Data managed by a React component that can change over time.',
+        'Angular features used to create and manage user input forms.',
       description:
-        'State allows components to respond to user interactions and application changes.',
-      difficulty: 'Intermediate',
-      example: 'const [count, setCount] = useState(0);'
-    },
-
-    {
-      id: 19,
-      term: 'useEffect',
-      category: 'React',
-      definition:
-        'A React Hook used to perform side effects in functional components.',
-      description:
-        'useEffect can be used for tasks such as data fetching and subscriptions.',
-      difficulty: 'Intermediate',
-      syntax: 'useEffect(() => { ... }, []);'
-    },
-
-    // TypeScript
-
-    {
-      id: 20,
-      term: 'TypeScript',
-      category: 'TypeScript',
-      definition:
-        'A strongly typed programming language built on top of JavaScript.',
-      description:
-        'TypeScript adds static typing and additional development features to JavaScript.',
+        'Angular provides template-driven and reactive approaches for building forms and handling validation.',
       difficulty: 'Beginner',
-      example: 'let age: number = 25;',
       featured: true
     },
 
     {
-      id: 21,
-      term: 'Interface',
-      category: 'TypeScript',
+      id: 19,
+      term: 'Reactive Forms',
+      category: 'Forms & User Input',
       definition:
-        'A TypeScript structure used to define the shape of an object.',
+        'A model-driven approach for creating and managing Angular forms.',
       description:
-        'Interfaces provide contracts that describe the properties and types an object should contain.',
+        'Reactive forms provide explicit control over form state and validation using TypeScript classes.',
       difficulty: 'Intermediate',
-      syntax: 'interface User { name: string; }',
-      relatedTerms: ['Type Alias', 'Generic'],
+      example: 'new FormControl("")'
+    },
+
+    {
+      id: 20,
+      term: 'FormControl',
+      category: 'Forms & User Input',
+      definition:
+        'A class that tracks the value and validation state of an individual form control.',
+      description:
+        'FormControl is a fundamental building block of Angular reactive forms.',
+      difficulty: 'Intermediate',
+      example: 'name = new FormControl("")'
+    },
+
+
+    // ========================================
+    // HTTP & API INTEGRATION
+    // ========================================
+
+    {
+      id: 21,
+      term: 'HttpClient',
+      category: 'HTTP & API Integration',
+      definition:
+        'Angular service used to communicate with HTTP-based backend services.',
+      description:
+        'HttpClient provides methods for sending HTTP requests and receiving responses from APIs.',
+      difficulty: 'Beginner',
+      example: 'http.get("/api/terms")',
       featured: true
     },
 
     {
       id: 22,
-      term: 'Type Alias',
-      category: 'TypeScript',
+      term: 'HTTP Interceptor',
+      category: 'HTTP & API Integration',
       definition:
-        'A custom name given to a type definition.',
+        'A mechanism that can inspect and modify HTTP requests and responses.',
       description:
-        'Type aliases make complex or reusable type definitions easier to work with.',
-      difficulty: 'Intermediate',
-      syntax: 'type ID = string | number;'
+        'Interceptors can be used for tasks such as authentication, logging, headers, and error handling.',
+      difficulty: 'Advanced'
     },
 
     {
       id: 23,
-      term: 'Generic',
-      category: 'TypeScript',
+      term: 'REST API',
+      category: 'HTTP & API Integration',
       definition:
-        'A feature that allows reusable components to work with multiple types.',
+        'An HTTP-based application programming interface following REST architectural principles.',
       description:
-        'Generics provide type flexibility while preserving type safety.',
-      difficulty: 'Advanced',
-      syntax: 'function identity<T>(value: T): T { return value; }'
+        'Angular applications commonly communicate with backend services through REST APIs.',
+      difficulty: 'Intermediate'
     },
+
+
+    // ========================================
+    // STATE MANAGEMENT
+    // ========================================
 
     {
       id: 24,
-      term: 'Enum',
-      category: 'TypeScript',
+      term: 'Component State',
+      category: 'State Management',
       definition:
-        'A TypeScript feature used to define a collection of named constants.',
+        'Data maintained by a component that represents its current state.',
       description:
-        'Enums can represent a fixed set of related values.',
+        'Component state can be represented using properties, signals, or other reactive mechanisms.',
+      difficulty: 'Beginner'
+    },
+
+    {
+      id: 25,
+      term: 'Shared State',
+      category: 'State Management',
+      definition:
+        'Application data that needs to be accessed or updated by multiple components.',
+      description:
+        'Shared state can be managed using services, signals, or dedicated state management solutions.',
+      difficulty: 'Intermediate'
+    },
+
+    {
+      id: 26,
+      term: 'Signal State',
+      category: 'State Management',
+      definition:
+        'Application state represented using Angular signals.',
+      description:
+        'Signals can provide a lightweight reactive approach to managing component and shared state.',
       difficulty: 'Intermediate',
-      syntax: 'enum Status { Active, Inactive }'
+      example: 'todos = signal<Todo[]>([])'
+    },
+
+
+    // ========================================
+    // ANGULAR ARCHITECTURE
+    // ========================================
+
+    {
+      id: 27,
+      term: 'ApplicationConfig',
+      category: 'Angular Architecture',
+      definition:
+        'A configuration object used to define application-level providers and configuration.',
+      description:
+        'ApplicationConfig is commonly used with modern standalone Angular applications.',
+      difficulty: 'Intermediate',
+      example: 'export const appConfig: ApplicationConfig = { ... }',
+      featured: true
+    },
+
+    {
+      id: 28,
+      term: 'Bootstrap Application',
+      category: 'Angular Architecture',
+      definition:
+        'The process of starting an Angular application by bootstrapping its root component.',
+      description:
+        'Modern standalone Angular applications can be started using bootstrapApplication.',
+      difficulty: 'Intermediate',
+      example: 'bootstrapApplication(App, appConfig)'
+    },
+
+    {
+      id: 29,
+      term: 'Feature-based Architecture',
+      category: 'Angular Architecture',
+      definition:
+        'An application organization strategy that groups files according to business features or functionality.',
+      description:
+        'Feature-based organization can improve maintainability and make larger Angular applications easier to navigate.',
+      difficulty: 'Advanced'
+    },
+
+
+    // ========================================
+    // TYPESCRIPT FOR ANGULAR
+    // ========================================
+
+    {
+      id: 30,
+      term: 'Interface',
+      category: 'TypeScript for Angular',
+      definition:
+        'A TypeScript structure used to describe the shape of an object.',
+      description:
+        'Interfaces are commonly used in Angular applications to define models and contracts.',
+      difficulty: 'Beginner',
+      example: 'interface User { name: string; }',
+      featured: true
+    },
+
+    {
+      id: 31,
+      term: 'Generic',
+      category: 'TypeScript for Angular',
+      definition:
+        'A TypeScript feature that allows reusable code to work with different types.',
+      description:
+        'Generics provide flexibility while maintaining type safety in Angular applications.',
+      difficulty: 'Intermediate',
+      example: 'Array<string>'
+    },
+
+    {
+      id: 32,
+      term: 'Decorator',
+      category: 'TypeScript for Angular',
+      definition:
+        'A special declaration that adds metadata or modifies the behavior of a class or member.',
+      description:
+        'Angular uses decorators such as @Component and @Injectable to provide framework metadata.',
+      difficulty: 'Intermediate',
+      example: '@Component({ ... })'
+    },
+
+
+    // ========================================
+    // ANGULAR PERFORMANCE
+    // ========================================
+
+    {
+      id: 33,
+      term: 'Change Detection',
+      category: 'Angular Performance',
+      definition:
+        'The process Angular uses to detect changes and update the rendered application.',
+      description:
+        'Understanding change detection helps developers build responsive and efficient Angular applications.',
+      difficulty: 'Advanced',
+      featured: true
+    },
+
+    {
+      id: 34,
+      term: 'OnPush',
+      category: 'Angular Performance',
+      definition:
+        'A change detection strategy that can reduce unnecessary component checking.',
+      description:
+        'OnPush can improve performance by allowing Angular to check components under specific change conditions.',
+      difficulty: 'Advanced'
+    },
+
+    {
+      id: 35,
+      term: 'Deferrable Views',
+      category: 'Angular Performance',
+      definition:
+        'Angular template functionality for deferring the loading and rendering of parts of an application.',
+      description:
+        'Deferrable views can help optimize initial rendering and resource loading.',
+      difficulty: 'Advanced',
+      example: '@defer { <app-heavy-component /> }'
+    },
+
+
+    // ========================================
+    // TESTING & DEPLOYMENT
+    // ========================================
+
+    {
+      id: 36,
+      term: 'Angular Testing',
+      category: 'Testing & Deployment',
+      definition:
+        'The practice of testing Angular components, services, and application behavior.',
+      description:
+        'Testing helps verify that Angular application functionality works as expected.',
+      difficulty: 'Intermediate',
+      featured: true
+    },
+
+    {
+      id: 37,
+      term: 'TestBed',
+      category: 'Testing & Deployment',
+      definition:
+        'An Angular testing utility used to configure and create testing environments.',
+      description:
+        'TestBed provides tools for configuring testing modules and creating component fixtures.',
+      difficulty: 'Intermediate'
+    },
+
+    {
+      id: 38,
+      term: 'Production Build',
+      category: 'Testing & Deployment',
+      definition:
+        'An optimized build of an Angular application intended for deployment.',
+      description:
+        'Production builds optimize application assets and prepare the project for hosting.',
+      difficulty: 'Intermediate',
+      example: 'ng build'
+    },
+
+    {
+      id: 39,
+      term: 'Angular Deployment',
+      category: 'Testing & Deployment',
+      definition:
+        'The process of publishing a built Angular application to a hosting environment.',
+      description:
+        'Angular applications can be deployed to static hosting platforms and other web hosting environments.',
+      difficulty: 'Intermediate'
     }
   ];
 
