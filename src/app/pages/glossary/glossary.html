@@ -238,21 +238,44 @@
           }
 
 
-          <div class="card-footer">
+<div class="card-footer">
 
-            @if (item.featured) {
+  <div class="footer-left">
 
-              <span class="featured">
-                Featured
-              </span>
+    @if (item.featured) {
 
-            }
+      <span class="featured">
+        Featured
+      </span>
 
-            <a [routerLink]="['/glossary', item.id]">
-              View Details →
-            </a>
+    }
 
-          </div>
+    <button
+      type="button"
+      class="favorite-button"
+      [class.active]="glossaryService.isFavorite(item.id)"
+      (click)="toggleFavorite(item.id)"
+      [attr.aria-label]="
+        glossaryService.isFavorite(item.id)
+          ? 'Remove ' + item.term + ' from favorites'
+          : 'Add ' + item.term + ' to favorites'
+      "
+    >
+
+      <span>
+        {{ glossaryService.isFavorite(item.id) ? '★' : '☆' }}
+      </span>
+
+    </button>
+
+  </div>
+
+
+  <a [routerLink]="['/glossary', item.id]">
+    View Details →
+  </a>
+
+</div>
 
         </article>
 

@@ -49,6 +49,21 @@
           {{ term.difficulty }}
         </span>
 
+        <button
+  type="button"
+  class="favorite-detail-button"
+  [class.active]="isFavorite()"
+  (click)="toggleFavorite()"
+>
+  <span>
+    {{ isFavorite() ? '★' : '☆' }}
+  </span>
+
+  {{ isFavorite()
+    ? 'Remove from Favorites'
+    : 'Add to Favorites'
+  }}
+</button>
       </div>
 
 

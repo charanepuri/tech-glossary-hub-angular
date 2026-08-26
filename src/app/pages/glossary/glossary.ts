@@ -19,6 +19,11 @@ import { GlossaryTerm } from '../../models/glossary-term.model';
 })
 export class Glossary implements OnInit {
 
+  toggleFavorite(termId: number): void {
+
+  this.glossaryService.toggleFavorite(termId);
+}
+
   terms: GlossaryTerm[] = [];
   filteredTerms: GlossaryTerm[] = [];
 
@@ -55,7 +60,7 @@ ngOnInit(): void {
 }
 
 constructor(
-  private glossaryService: GlossaryService,
+  public glossaryService: GlossaryService,
   private route: ActivatedRoute
 ) {}
 

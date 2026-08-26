@@ -549,7 +549,67 @@ export class GlossaryService {
     }
   ];
 
-  getTerms(): GlossaryTerm[] {
-    return this.terms;
+private readonly favoritesKey =
+  'tech-glossary-hub-favorites';
+
+getTerms(): GlossaryTerm[] {
+  return this.terms;
+}
+
+getFavoriteIds(): number[] {
+  const storedFavorites =
+    localStorage.getItem(this.favoritesKey);
+
+  if (!storedFavorites) {
+    return [];
   }
+
+  try {
+    const parsed = JSON.parse(storedFavorites);
+
+    return Array.isArray(parsed)
+      ? parsed.map(Number).filter(id => !Number.isNaN(id))
+      : [];
+
+  } catch {
+    return [];
+  }
+}
+
+isFavorite(termId: number): boolean {
+  return this.getFavoriteIds().includes(termId);
+}
+
+toggleFavorite(termId: number): void {
+
+  const favorites = this.getFavoriteIds();
+
+  const index = favorites.indexOf(termId);
+
+  if (index >= 0) {
+    favorites.splice(index, 1);
+  } else {
+    favorites.push(termId);
+  }
+
+  localStorage.setItem(
+    this.favoritesKey,
+    JSON.stringify(favorites)
+  );
+}
+
+getFavoriteTerms(): GlossaryTerm[] {
+
+  const favoriteIds = this.getFavoriteIds();
+
+  return this.terms.filter(term =>
+    favoriteIds.includes(term.id)
+  );
+}
+
+getFavoriteCount(): number {
+  return this.getFavoriteIds().length;
+}
+
+  
 }

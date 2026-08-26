@@ -40,6 +40,14 @@ export const routes: Routes = [
   },
 
   {
+  path: 'favorites',
+  loadComponent: () =>
+    import('./pages/favorites/favorites').then(
+      m => m.Favorites
+    )
+},
+
+  {
     path: 'about',
     loadComponent: () =>
       import('./pages/about/about').then(

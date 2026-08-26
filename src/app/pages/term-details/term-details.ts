@@ -41,4 +41,19 @@ export class TermDetails implements OnInit {
 
     }
   }
+
+  isFavorite(): boolean {
+  return this.term
+    ? this.glossaryService.isFavorite(this.term.id)
+    : false;
+}
+
+toggleFavorite(): void {
+
+  if (!this.term) {
+    return;
+  }
+
+  this.glossaryService.toggleFavorite(this.term.id);
+}
 }

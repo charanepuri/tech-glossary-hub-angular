@@ -1,0 +1,125 @@
+<section class="favorites-page">
+
+  <div class="page-header">
+
+    <span class="page-label">
+      Personal Collection
+    </span>
+
+    <h1>
+      My Favorites
+    </h1>
+
+    <p>
+      Keep the Angular concepts you want to revisit
+      close at hand.
+    </p>
+
+  </div>
+
+
+  @if (favoriteTerms.length > 0) {
+
+    <div class="favorites-summary">
+
+      <strong>
+        {{ favoriteTerms.length }}
+      </strong>
+
+      <span>
+        Saved
+        {{ favoriteTerms.length === 1 ? 'Term' : 'Terms' }}
+      </span>
+
+    </div>
+
+
+    <div class="terms-grid">
+
+      @for (
+        item of favoriteTerms;
+        track item.id
+      ) {
+
+        <article class="term-card">
+
+          <div class="term-header">
+
+            <span class="category-badge">
+              {{ item.category }}
+            </span>
+
+            <span class="difficulty-badge">
+              {{ item.difficulty }}
+            </span>
+
+          </div>
+
+
+          <h2>
+            {{ item.term }}
+          </h2>
+
+
+          <p class="definition">
+            {{ item.definition }}
+          </p>
+
+
+          <p class="description">
+            {{ item.description }}
+          </p>
+
+
+          <div class="card-footer">
+
+            <button
+              type="button"
+              class="remove-button"
+              (click)="removeFavorite(item.id)"
+            >
+              ★ Remove
+            </button>
+
+            <a
+              [routerLink]="['/glossary', item.id]"
+            >
+              View Details →
+            </a>
+
+          </div>
+
+        </article>
+
+      }
+
+    </div>
+
+  } @else {
+
+    <div class="empty-state">
+
+      <div class="empty-icon">
+        ☆
+      </div>
+
+      <h2>
+        No Favorites Yet
+      </h2>
+
+      <p>
+        Save glossary terms you want to revisit later.
+      </p>
+
+      <a
+        routerLink="/glossary"
+        class="browse-button"
+      >
+        Browse Glossary
+      </a>
+
+    </div>
+
+  }
+
+</section>
