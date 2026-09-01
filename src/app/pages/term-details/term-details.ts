@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import {
+  ActivatedRoute,
+  Router,
+  RouterLink
+} from '@angular/router';
 
 import { GlossaryService } from '../../services/glossary';
 import { GlossaryTerm } from '../../models/glossary-term.model';
@@ -16,44 +20,81 @@ export class TermDetails implements OnInit {
 
   relatedTerms: GlossaryTerm[] = [];
 
+  previousTerm: GlossaryTerm | undefined;
+
+  nextTerm: GlossaryTerm | undefined;
+
   constructor(
     private route: ActivatedRoute,
-    private glossaryService: GlossaryService
+    private router: Router,
+    public glossaryService: GlossaryService
   ) {}
 
   ngOnInit(): void {
+    this.loadTerm();
+  }
+
+  loadTerm(): void {
 
     const id = Number(
       this.route.snapshot.paramMap.get('id')
     );
 
-    this.term = this.glossaryService
-      .getTerms()
-      .find(term => term.id === id);
+    const terms =
+      this.glossaryService.getTerms();
 
-    if (this.term?.relatedTerms) {
+    this.term = terms.find(
+      term => term.id === id
+    );
 
-      this.relatedTerms = this.glossaryService
-        .getTerms()
-        .filter(item =>
-          this.term?.relatedTerms?.includes(item.term)
-        );
-
+    if (!this.term) {
+      this.relatedTerms = [];
+      this.previousTerm = undefined;
+      this.nextTerm = undefined;
+      return;
     }
+
+    this.relatedTerms = terms.filter(
+      item =>
+        this.term?.relatedTerms?.includes(item.term)
+    );
+
+    const currentIndex = terms.findIndex(
+      item => item.id === id
+    );
+
+    this.previousTerm =
+      currentIndex > 0
+        ? terms[currentIndex - 1]
+        : undefined;
+
+    this.nextTerm =
+      currentIndex < terms.length - 1
+        ? terms[currentIndex + 1]
+        : undefined;
   }
 
   isFavorite(): boolean {
-  return this.term
-    ? this.glossaryService.isFavorite(this.term.id)
-    : false;
-}
-
-toggleFavorite(): void {
-
-  if (!this.term) {
-    return;
+    return this.term
+      ? this.glossaryService.isFavorite(this.term.id)
+      : false;
   }
 
-  this.glossaryService.toggleFavorite(this.term.id);
-}
+  toggleFavorite(): void {
+
+    if (!this.term) {
+      return;
+    }
+
+    this.glossaryService.toggleFavorite(
+      this.term.id
+    );
+  }
+
+  navigateToTerm(id: number): void {
+    this.router.navigate([
+      '/glossary',
+      id
+    ]);
+  }
 }

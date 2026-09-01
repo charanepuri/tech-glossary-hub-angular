@@ -13,6 +13,12 @@
       <span>/</span>
 
       <span>
+        {{ term.category }}
+      </span>
+
+      <span>/</span>
+
+      <span>
         {{ term.term }}
       </span>
 
@@ -22,6 +28,8 @@
     <!-- Main Term -->
 
     <article class="term-details-card">
+
+      <!-- Header -->
 
       <div class="term-header">
 
@@ -37,33 +45,42 @@
 
         </div>
 
-        <span
-          class="difficulty-badge"
-          [class.intermediate]="
-            term.difficulty === 'Intermediate'
-          "
-          [class.advanced]="
-            term.difficulty === 'Advanced'
-          "
-        >
-          {{ term.difficulty }}
-        </span>
 
-        <button
-  type="button"
-  class="favorite-detail-button"
-  [class.active]="isFavorite()"
-  (click)="toggleFavorite()"
->
-  <span>
-    {{ isFavorite() ? '★' : '☆' }}
-  </span>
+        <div class="header-actions">
 
-  {{ isFavorite()
-    ? 'Remove from Favorites'
-    : 'Add to Favorites'
-  }}
-</button>
+          <span
+            class="difficulty-badge"
+            [class.intermediate]="
+              term.difficulty === 'Intermediate'
+            "
+            [class.advanced]="
+              term.difficulty === 'Advanced'
+            "
+          >
+            {{ term.difficulty }}
+          </span>
+
+
+          <button
+            type="button"
+            class="favorite-detail-button"
+            [class.active]="isFavorite()"
+            (click)="toggleFavorite()"
+          >
+
+            <span>
+              {{ isFavorite() ? '★' : '☆' }}
+            </span>
+
+            {{ isFavorite()
+              ? 'Remove from Favorites'
+              : 'Add to Favorites'
+            }}
+
+          </button>
+
+        </div>
+
       </div>
 
 
@@ -82,7 +99,7 @@
       </section>
 
 
-      <!-- Description -->
+      <!-- Overview -->
 
       <section class="detail-section">
 
@@ -153,6 +170,12 @@
             Related Terms
           </span>
 
+          <p class="section-description">
+            Explore concepts connected to
+            {{ term.term }}.
+          </p>
+
+
           <div class="related-grid">
 
             @for (
@@ -176,7 +199,7 @@
                   {{ related.term }}
                 </strong>
 
-                <span>
+                <span class="related-link">
                   Learn more →
                 </span>
 
@@ -189,6 +212,62 @@
         </section>
 
       }
+
+
+      <!-- Previous / Next -->
+
+      <section class="term-navigation">
+
+        @if (previousTerm) {
+
+          <a
+            [routerLink]="[
+              '/glossary',
+              previousTerm.id
+            ]"
+            class="navigation-card previous"
+          >
+
+            <span>
+              ← Previous Term
+            </span>
+
+            <strong>
+              {{ previousTerm.term }}
+            </strong>
+
+          </a>
+
+        } @else {
+
+          <div class="navigation-placeholder"></div>
+
+        }
+
+
+        @if (nextTerm) {
+
+          <a
+            [routerLink]="[
+              '/glossary',
+              nextTerm.id
+            ]"
+            class="navigation-card next"
+          >
+
+            <span>
+              Next Term →
+            </span>
+
+            <strong>
+              {{ nextTerm.term }}
+            </strong>
+
+          </a>
+
+        }
+
+      </section>
 
 
       <!-- Footer -->
@@ -208,7 +287,10 @@
 
   </section>
 
+
 } @else {
+
+  <!-- Invalid Term -->
 
   <section class="term-not-found">
 
@@ -221,7 +303,8 @@
     </h1>
 
     <p>
-      The glossary term you're looking for doesn't exist.
+      The glossary term you're looking for
+      doesn't exist.
     </p>
 
     <a
