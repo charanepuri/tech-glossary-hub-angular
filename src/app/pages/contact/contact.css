@@ -1,0 +1,518 @@
+:host {
+  display: block;
+}
+
+.contact-page {
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  padding: 80px 24px 60px;
+}
+
+
+/* =========================
+   Hero
+========================= */
+
+.contact-hero {
+  max-width: 750px;
+
+  margin: 0 auto 75px;
+
+  text-align: center;
+}
+
+.page-label {
+  display: inline-block;
+
+  margin-bottom: 15px;
+
+  color: #60a5fa;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.14em;
+}
+
+.contact-hero h1 {
+  margin: 0;
+
+  color: #f8fafc;
+
+  font-size: clamp(2.5rem, 6vw, 4rem);
+
+  line-height: 1.05;
+
+  letter-spacing: -0.055em;
+}
+
+.contact-hero p {
+  max-width: 650px;
+
+  margin: 22px auto 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+
+  line-height: 1.9;
+}
+
+
+/* =========================
+   Layout
+========================= */
+
+.contact-layout {
+  display: grid;
+
+  grid-template-columns: 1.15fr 0.85fr;
+
+  gap: 35px;
+
+  align-items: start;
+}
+
+.section-label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #60a5fa;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+.contact-info h2,
+.message-card h2 {
+  margin: 0;
+
+  color: #f8fafc;
+
+  font-size: 24px;
+
+  letter-spacing: -0.03em;
+}
+
+.intro {
+  max-width: 550px;
+
+  margin: 15px 0 28px;
+
+  color: #64748b;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================
+   Contact Cards
+========================= */
+
+.contact-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.contact-card {
+  padding: 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  border: 1px solid rgba(148, 163, 184, 0.1);
+
+  border-radius: 11px;
+
+  background: #111827;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.contact-card:hover {
+  transform: translateX(4px);
+
+  border-color: rgba(96, 165, 250, 0.25);
+
+  background: #121d31;
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: rgba(59, 130, 246, 0.09);
+
+  color: #60a5fa;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+.contact-details {
+  min-width: 0;
+
+  flex: 1;
+}
+
+.contact-label {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #64748b;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+}
+
+.contact-details strong {
+  display: block;
+
+  overflow: hidden;
+
+  color: #e2e8f0;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.contact-details p {
+  margin: 5px 0 0;
+
+  color: #64748b;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+.contact-arrow {
+  color: #475569;
+
+  font-size: 15px;
+
+  transition: color 0.2s ease;
+}
+
+.contact-card:hover .contact-arrow {
+  color: #60a5fa;
+}
+
+
+/* =========================
+   Message Card
+========================= */
+
+.contact-message {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.message-card {
+  padding: 27px;
+
+  border: 1px solid rgba(148, 163, 184, 0.1);
+
+  border-radius: 14px;
+
+  background: #111827;
+}
+
+.message-card p {
+  margin: 17px 0 0;
+
+  color: #64748b;
+
+  font-size: 12px;
+
+  line-height: 1.8;
+}
+
+.message-divider {
+  height: 1px;
+
+  margin: 25px 0;
+
+  background: rgba(148, 163, 184, 0.08);
+}
+
+
+/* =========================
+   Project Stats
+========================= */
+
+.project-stats {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 10px;
+}
+
+.project-stats div {
+  padding: 13px;
+
+  border-radius: 8px;
+
+  background: rgba(15, 23, 42, 0.65);
+
+  text-align: center;
+}
+
+.project-stats strong {
+  display: block;
+
+  color: #f8fafc;
+
+  font-size: 17px;
+}
+
+.project-stats span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #64748b;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.06em;
+}
+
+
+/* =========================
+   Quick Links
+========================= */
+
+.quick-links {
+  padding: 22px;
+
+  border: 1px solid rgba(148, 163, 184, 0.1);
+
+  border-radius: 12px;
+
+  background: #0f172a;
+}
+
+.quick-links .section-label {
+  margin-bottom: 13px;
+}
+
+.quick-links a {
+  padding: 11px 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-bottom: 1px solid rgba(148, 163, 184, 0.07);
+
+  color: #94a3b8;
+
+  font-size: 12px;
+
+  transition:
+    color 0.2s ease,
+    padding 0.2s ease;
+}
+
+.quick-links a:last-child {
+  border-bottom: none;
+}
+
+.quick-links a:hover {
+  padding-left: 4px;
+
+  color: #60a5fa;
+}
+
+.quick-links a span {
+  color: #475569;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.contact-cta {
+  margin-top: 75px;
+
+  padding: 55px 25px;
+
+  text-align: center;
+
+  border: 1px solid rgba(96, 165, 250, 0.12);
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.08),
+      rgba(15, 23, 42, 0.3)
+    );
+}
+
+.contact-cta > span {
+  color: #60a5fa;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+.contact-cta h2 {
+  margin: 12px 0 10px;
+
+  color: #f8fafc;
+
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+
+  letter-spacing: -0.035em;
+}
+
+.contact-cta p {
+  max-width: 550px;
+
+  margin: 0 auto 22px;
+
+  color: #64748b;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   Button
+========================= */
+
+.primary-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 11px 17px;
+
+  border-radius: 8px;
+
+  background: #3b82f6;
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.primary-button:hover {
+  background: #2563eb;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 850px) {
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .contact-page {
+    padding: 60px 18px 45px;
+  }
+
+  .contact-hero {
+    margin-bottom: 55px;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .contact-card {
+    padding: 15px;
+  }
+
+  .contact-details strong {
+    white-space: normal;
+  }
+
+  .project-stats strong {
+    font-size: 15px;
+  }
+
+  .contact-cta {
+    margin-top: 55px;
+
+    padding: 45px 18px;
+  }
+
+}

@@ -1,1 +1,228 @@
-<p>contact works!</p>
+<section class="contact-page">
+
+  <!-- Hero -->
+
+  <div class="contact-hero">
+
+    <span class="page-label">
+      Get In Touch
+    </span>
+
+    <h1>
+      Let's Connect
+    </h1>
+
+    <p>
+      Have a question about the project, want to discuss
+      Angular development, or simply want to connect?
+      Feel free to reach out.
+    </p>
+
+  </div>
+
+
+  <!-- Contact Content -->
+
+  <div class="contact-layout">
+
+    <!-- Contact Information -->
+
+    <section class="contact-info">
+
+      <span class="section-label">
+        CONTACT INFORMATION
+      </span>
+
+      <h2>
+        Connect with Me
+      </h2>
+
+      <p class="intro">
+        I'm always interested in connecting with fellow
+        developers, exploring new technologies, and
+        discussing software development.
+      </p>
+
+
+      <div class="contact-list">
+
+        @for (
+          contact of contactLinks;
+          track contact.label
+        ) {
+
+          <a
+            [href]="contact.href"
+            [target]="
+              contact.label === 'Email'
+                ? null
+                : '_blank'
+            "
+            [rel]="
+              contact.label === 'Email'
+                ? null
+                : 'noopener noreferrer'
+            "
+            class="contact-card"
+          >
+
+            <div class="contact-icon">
+              @switch (contact.label) {
+
+                @case ('Email') {
+                  @
+                }
+
+                @case ('LinkedIn') {
+                  in
+                }
+
+                @case ('GitHub') {
+                  GH
+                }
+
+              }
+            </div>
+
+
+            <div class="contact-details">
+
+              <span class="contact-label">
+                {{ contact.label }}
+              </span>
+
+              <strong>
+                {{ contact.value }}
+              </strong>
+
+              <p>
+                {{ contact.description }}
+              </p>
+
+            </div>
+
+
+            <span class="contact-arrow">
+              ↗
+            </span>
+
+          </a>
+
+        }
+
+      </div>
+
+    </section>
+
+
+    <!-- Project Message -->
+
+    <section class="contact-message">
+
+      <div class="message-card">
+
+        <span class="section-label">
+          ABOUT THIS PROJECT
+        </span>
+
+        <h2>
+          Tech Glossary Hub
+        </h2>
+
+        <p>
+          The Angular edition of Tech Glossary Hub is
+          designed as a practical knowledge base for
+          understanding Angular development concepts.
+        </p>
+
+        <p>
+          The project covers Angular fundamentals,
+          components and templates, signals, routing,
+          dependency injection, forms, HTTP integration,
+          state management, architecture, performance,
+          testing, and deployment.
+        </p>
+
+
+        <div class="message-divider"></div>
+
+
+        <div class="project-stats">
+
+          <div>
+            <strong>12</strong>
+            <span>Categories</span>
+          </div>
+
+          <div>
+            <strong>39</strong>
+            <span>Terms</span>
+          </div>
+
+          <div>
+            <strong>Angular</strong>
+            <span>Focused</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Quick Links -->
+
+      <div class="quick-links">
+
+        <span class="section-label">
+          QUICK NAVIGATION
+        </span>
+
+        <a routerLink="/glossary">
+          Explore Glossary
+          <span>→</span>
+        </a>
+
+        <a routerLink="/categories">
+          Browse Categories
+          <span>→</span>
+        </a>
+
+        <a routerLink="/about">
+          About the Project
+          <span>→</span>
+        </a>
+
+      </div>
+
+    </section>
+
+  </div>
+
+
+  <!-- Bottom CTA -->
+
+  <section class="contact-cta">
+
+    <span>
+      KEEP LEARNING
+    </span>
+
+    <h2>
+      Explore Angular Concepts
+    </h2>
+
+    <p>
+      Continue exploring the glossary and build a stronger
+      understanding of modern Angular development.
+    </p>
+
+    <a
+      routerLink="/glossary"
+      class="primary-button"
+    >
+      Explore Glossary →
+    </a>
+
+  </section>
+
+</section>
