@@ -1,1 +1,327 @@
-<p>about works!</p>
+<section class="about-page">
+
+  <!-- Hero -->
+
+  <div class="about-hero">
+
+    <span class="page-label">
+      About the Project
+    </span>
+
+    <h1>
+      Learn Angular.
+      <span>Understand the Concepts.</span>
+    </h1>
+
+    <p>
+      Tech Glossary Hub is an Angular-focused technical
+      glossary designed to make important development
+      concepts easier to understand, explore, and revisit.
+    </p>
+
+    <div class="hero-actions">
+
+      <a
+        routerLink="/glossary"
+        class="primary-button"
+      >
+        Explore Glossary →
+      </a>
+
+      <a
+        routerLink="/categories"
+        class="secondary-button"
+      >
+        View Categories
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- Project Overview -->
+
+  <section class="content-section">
+
+    <div class="section-heading">
+
+      <span>
+        PROJECT OVERVIEW
+      </span>
+
+      <h2>
+        A Focused Angular Knowledge Base
+      </h2>
+
+    </div>
+
+    <div class="overview-card">
+
+      <p>
+        Tech Glossary Hub Angular Edition is a learning-oriented
+        glossary that organizes essential Angular concepts into
+        focused categories.
+      </p>
+
+      <p>
+        Instead of presenting technical terminology as a large,
+        unstructured list, the application organizes concepts
+        around Angular development areas such as components,
+        templates, signals, routing, dependency injection,
+        forms, APIs, architecture, performance, testing, and
+        deployment.
+      </p>
+
+      <p>
+        Each glossary entry provides a concise definition,
+        additional explanation, and practical information where
+        applicable.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- Objectives -->
+
+  <section class="content-section">
+
+    <div class="section-heading">
+
+      <span>
+        OBJECTIVES
+      </span>
+
+      <h2>
+        Built for Practical Learning
+      </h2>
+
+    </div>
+
+    <div class="objectives-grid">
+
+      <article class="objective-card">
+
+        <div class="objective-number">
+          01
+        </div>
+
+        <h3>
+          Simplify Concepts
+        </h3>
+
+        <p>
+          Present technical terminology using clear,
+          beginner-friendly explanations.
+        </p>
+
+      </article>
+
+
+      <article class="objective-card">
+
+        <div class="objective-number">
+          02
+        </div>
+
+        <h3>
+          Organize Knowledge
+        </h3>
+
+        <p>
+          Group Angular concepts into meaningful categories
+          for easier exploration.
+        </p>
+
+      </article>
+
+
+      <article class="objective-card">
+
+        <div class="objective-number">
+          03
+        </div>
+
+        <h3>
+          Encourage Exploration
+        </h3>
+
+        <p>
+          Connect related concepts and provide navigation
+          between glossary entries.
+        </p>
+
+      </article>
+
+
+      <article class="objective-card">
+
+        <div class="objective-number">
+          04
+        </div>
+
+        <h3>
+          Support Revision
+        </h3>
+
+        <p>
+          Allow important concepts to be saved as favorites
+          for future reference.
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- Highlights -->
+
+  <section class="content-section">
+
+    <div class="section-heading">
+
+      <span>
+        KEY HIGHLIGHTS
+      </span>
+
+      <h2>
+        What Makes the Hub Useful?
+      </h2>
+
+    </div>
+
+    <div class="highlights-grid">
+
+      @for (
+        highlight of highlights;
+        track highlight.title
+      ) {
+
+        <article class="highlight-card">
+
+          <div class="highlight-icon">
+            ✓
+          </div>
+
+          <h3>
+            {{ highlight.title }}
+          </h3>
+
+          <p>
+            {{ highlight.description }}
+          </p>
+
+        </article>
+
+      }
+
+    </div>
+
+  </section>
+
+
+  <!-- Categories -->
+
+  <section class="content-section">
+
+    <div class="section-heading">
+
+      <span>
+        KNOWLEDGE AREAS
+      </span>
+
+      <h2>
+        12 Angular-Focused Categories
+      </h2>
+
+    </div>
+
+    <div class="category-list">
+
+      <span>Angular Fundamentals</span>
+      <span>Components & Templates</span>
+      <span>Signals & Reactivity</span>
+      <span>Routing & Navigation</span>
+      <span>Services & Dependency Injection</span>
+      <span>Forms & User Input</span>
+      <span>HTTP & API Integration</span>
+      <span>State Management</span>
+      <span>Angular Architecture</span>
+      <span>TypeScript for Angular</span>
+      <span>Angular Performance</span>
+      <span>Testing & Deployment</span>
+
+    </div>
+
+  </section>
+
+
+  <!-- Technology Stack -->
+
+  <section class="content-section">
+
+    <div class="section-heading">
+
+      <span>
+        TECHNOLOGY STACK
+      </span>
+
+      <h2>
+        Built with Modern Web Technologies
+      </h2>
+
+    </div>
+
+    <div class="technology-grid">
+
+      @for (
+        technology of technologies;
+        track technology
+      ) {
+
+        <div class="technology-card">
+
+          <span class="technology-dot"></span>
+
+          {{ technology }}
+
+        </div>
+
+      }
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section class="about-cta">
+
+    <span>
+      START EXPLORING
+    </span>
+
+    <h2>
+      Build Your Angular Knowledge
+    </h2>
+
+    <p>
+      Explore concepts, discover related topics, and save
+      the terms you want to remember.
+    </p>
+
+    <a
+      routerLink="/glossary"
+      class="primary-button"
+    >
+      Browse the Glossary →
+    </a>
+
+  </section>
+
+</section>
