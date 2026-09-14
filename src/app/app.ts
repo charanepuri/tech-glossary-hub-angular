@@ -15,5 +15,7 @@ import { Footer } from './components/footer/footer';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('Tech Glossary Hub');
+  protected readonly title = signal(
+    'tech-glossary-hub-angular'
+  );
 }
