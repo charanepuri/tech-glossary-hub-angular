@@ -47,6 +47,12 @@ export const routes: Routes = [
     )
 },
 
+{
+  path: 'versions',
+  loadComponent: () =>
+    import('./pages/versions/versions').then(m => m.Versions)
+},
+
   {
     path: 'about',
     loadComponent: () =>
